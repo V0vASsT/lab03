@@ -99,7 +99,21 @@ show_histogram_svg(vector<size_t>& bins) {
     svg_end();
 }
 void
-svg_rect(double x, double y, double width, double height);
+svg_rect(double x, double y, double width, double height)
+{
+    cout<< "<rect x=  \" "<<x<<" \" "<<y
+        <<" \" width = \" "<<width<<" \" height = \" "<< height<<"'/";
+}
+void show_histogram_svg(const vector<size_t>& bins)
+{
+    const auto IMAGE_WIDTH = 400;
+    const auto IMAGE_HEIGHT = 300;
+    const auto TEXT_LEFT = 20;
+    const auto TEXT_BASELINE = 20;
+    const auto TEXT_WIDTH = 50;
+    const auto BIN_HEIGHT = 30;
+
+}
 int
 main() {
     // ¬вод данных
