@@ -93,7 +93,8 @@ svg_text(double left, double baseline, string text)
     cout<< "<text x=' "<<left<<"' y='"<<baseline<<"'>"<<text<<"</text>";
 }
 void
-show_histogram_svg(vector<size_t>& bins) {
+show_histogram_svg(vector<size_t>& bins) 
+{
     const auto IMAGE_WIDTH = 400;
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 20;
@@ -105,16 +106,19 @@ show_histogram_svg(vector<size_t>& bins) {
     svg_text(20, 20, to_string(bins[0]));
     svg_end();
 }
-void
-svg_rect(double x, double y, double width, double height,string stroke, string fill)
+void svg_rect(double x, double y, double width, double height,
+        string stroke = "black", string fill = "black");
 {
+    svg_rect(0, 0, 100, 200);             // svg_rect(0, 0, 100, 200, "black", "black");
+    svg_rect(0, 0, 100, 200, "red");      // svg_rect(0, 0, 100, 200, "red",   "black");
+    svg_rect(0, 0, 100, 200, "blue", 4);
     cout<< "<rect x=  \" "<<x<<" \" "<<y
         <<" \" width = \" "<<width<<" \" height = \" "<< height
         <<"'stroke='"<< stroke<<"' fill='"<fill<<"'/";
 }
 int
 main() {
-    // Ввод данных
+    // Г‚ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ
     size_t number_count;
     cerr << "Enter number count: ";
     cin >> number_count;
@@ -129,7 +133,7 @@ main() {
     vector <size_t> bins (bin_count);
     make_histogram(bins, numbers, bin_count);
 
-    // Вывод данных
+    // Г‚Г»ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ
     show_histogram_svg(bins);
 
     return 0;
